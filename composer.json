@@ -1,10 +1,17 @@
 {
 	"name": "danielromeroauk/distrigases-cartera",
 	"description": "Aplicación que registra las cuentas por pagar a proveedores, las cuentas por cobrar a clientes y los abonos realizados a dichas cuentas.",
-	"keywords": ["framework", "laravel", "cartera", "adsiar"],
+	"keywords": ["cartera", "adsiar"],
 	"license": "MIT",
 	"require": {
-		"laravel/framework": "4.2.8"
+		"laravel/framework": "4.2.*"
+	},
+	"require-dev": {
+		"barryvdh/laravel-debugbar": "1.8.*@dev",
+		"barryvdh/laravel-ide-helper": "1.11.*@dev",
+		"way/generators": "~2.0",
+		"fzaninotto/faker": "1.4.0",
+		"codeception/codeception": "2.0.*"
 	},
 	"autoload": {
 		"classmap": [
@@ -23,6 +30,7 @@
 		],
 		"post-update-cmd": [
 			"php artisan clear-compiled",
+			"php artisan ide-helper:generate",
 			"php artisan optimize"
 		],
 		"post-create-project-cmd": [
