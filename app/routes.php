@@ -1,5 +1,7 @@
 <?php
 
+Route::controller('home', 'HomeController');
+
 Route::get('/', array('as' => 'home', function()
 {
 	return Redirect::route('listado_de_terceros');
@@ -20,6 +22,16 @@ Route::group(array('before' => 'guest'), function()
 
 Route::group(array('before' => 'auth'), function()
 {
+	Route::get('cambiar-password', [
+		'as' => 'cambiar_password',
+		'uses' => 'UserController@cambiar_password'
+	]);
+
+	Route::post('actualizar-password', [
+		'as' => 'actualizar_password',
+		'uses' => 'UserController@actualizar_password'
+	]);
+
 	Route::get('salir', [
 		'as' => 'logout',
 		'uses' => 'UserController@logout'

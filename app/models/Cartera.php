@@ -45,12 +45,17 @@ class Cartera extends \Eloquent {
 		return (float) $abonado;
 	}
 
-	public function tiempo_transcurrido($inicio, $fin)
+	public function tiempo_transcurrido($inicio, $fin, $dias = null)
 	{
 		$fecha = $this->created_at;
 		$hoy = new DateTime();
 		$intervalo = $fecha->diff($hoy);
 		$diferencia = (int) $intervalo->format('%a');
+
+		if (! is_null($dias))
+		{
+			return $diferencia;
+		}
 
 		if ($diferencia >= $inicio && $diferencia <= $fin)
 		{

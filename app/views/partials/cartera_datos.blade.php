@@ -5,6 +5,9 @@
 	<dt>Fecha:</dt>
 	<dd>{{date_format(new Datetime($cartera->created_at), 'Y-m-d')}}</dd>
 
+	<dt>Transcurrido:</dt>
+	<dd>{{$cartera->tiempo_transcurrido(null, null, true)}} días</dd>
+
 	<dt>{{$cartera->prefijo}}</dt>
 	<dd><strong>{{$cartera->fisico}}</strong></dd>
 

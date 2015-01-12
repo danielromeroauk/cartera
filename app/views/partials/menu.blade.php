@@ -54,7 +54,7 @@
 
             <ul class="dropdown-menu">
               <li>
-                <a href="#">
+                <a href="{{route('cambiar_password')}}">
                   <span class="glyphicon glyphicon-lock"></span>
                   Cambiar password</a>
               </li>
