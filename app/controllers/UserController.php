@@ -28,4 +28,47 @@ class UserController extends BaseController {
 		Auth::logout();
 		return Redirect::route('login');
 	}
-}
+
+	public function cambiar_password()
+	{
+		return View::make('users.cambiar_password');
+	}
+
+	public function actualizar_password()
+	{
+		$input = Input::all();
+
+		$credenciales = [
+				'email' => Auth::user()->email,
+				'password' => $input['password_actual']
+		];
+
+		if (Auth::attempt($credenciales))
+		{
+			$reglas = [
+					'nuevo_password' => 'required|min:5|confirmed'
+			];
+
+			$validador = Validator::make($input, $reglas);
+
+			if ($validador->passes())
+			{
+				Auth::user()->password = Hash::make($input['nuevo_password']);
+				Auth::user()->save();
+
+				Session::flash('mensaje', 'Clave cambiada con éxito.');
+
+				return Redirect::route('listado_de_terceros');
+			}
+			else
+			{
+				return Redirect::back()->withErrors($validador);
+			}
+		}
+		else
+		{
+			return Redirect::route('logout');
+		}
+	} #actualizar_password
+
+} #UserController
