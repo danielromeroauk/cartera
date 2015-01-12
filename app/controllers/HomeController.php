@@ -1,23 +1,38 @@
 <?php
 
+use Faker\Factory as Faker;
+
 class HomeController extends BaseController {
 
-	/*
-	|--------------------------------------------------------------------------
-	| Default Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| You may wish to use controllers instead of, or in addition to, Closure
-	| based routes. That's great! Here is an example controller method to
-	| get you started. To route to this controller, just add the route:
-	|
-	|	Route::get('/', 'HomeController@showWelcome');
-	|
-	*/
-
-	public function showWelcome()
+	public function getShowWelcome()
 	{
+		$user = User::find(1);
+		$user->password = Hash::make('123');
+		$user->save();
+		
 		return View::make('hello');
 	}
 
-}
+	public function getCreateUsers()
+	{
+		$faker = Faker::create();
+
+		$user = new User();
+		$user->nombre = 'DANIEL GUILLERMO ROMERO GELVEZ';
+		$user->email = 'danielromeroauk@gmail.com';
+		$user->password = Hash::make('123');
+		$user->save();
+
+		foreach(range(1, 10) as $index)
+		{
+			$user = new User();
+			$user->nombre = $faker->name;
+			$user->email = $faker->email;
+			$user->password = Hash::make('123');
+			$user->save();
+		}
+
+		return 'Usuarios creados';
+	} #getCreateUsers
+
+} #HomeController
