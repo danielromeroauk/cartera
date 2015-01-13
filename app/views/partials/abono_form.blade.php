@@ -5,7 +5,7 @@
 
 		{{Form::select('user_id',
 			User::users_array(),
-			(isset($cartera->user_id)) ? $cartera->user_id : Auth::user()->id,
+			(isset($abono->user_id)) ? $abono->user_id : Auth::user()->id,
 			['class' => 'form-control']
 		)}}
 	</div>
