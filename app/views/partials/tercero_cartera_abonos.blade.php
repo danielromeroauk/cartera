@@ -6,6 +6,7 @@
 			<th>Fecha</th>
 			<th>Forma de pago</th>
 			<th class="text-right">Monto</th>
+			<th>Notas</th>
 			<th>Acción</th>
 		</tr>
 	</thead>
@@ -30,6 +31,10 @@
 				@endif
 			</td>
 			<td class="text-right">{{number_format($abono->monto, 2, ',', '.')}}</td>
+			<td>
+				{{$abono->notas}} <br />
+				Responsable: {{$abono->user->nombre}}
+			</td>
 			<td>
 				<a href="{{route('editar_abono', ['id' => $abono->id])}}" class="btn btn-warning btn-sm">
 					<span class="glyphicon glyphicon-edit"></span>

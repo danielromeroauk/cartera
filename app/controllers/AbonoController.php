@@ -39,7 +39,7 @@ class AbonoController extends \BaseController {
 	 */
 	public function store()
 	{
-		$input = Input::only(['cartera_id', 'forma_pago', 'cuenta_id', 'monto', 'notas', 'created_at']);
+		$input = Input::only(['cartera_id', 'forma_pago', 'cuenta_id', 'monto', 'notas', 'created_at', 'user_id']);
 		$validador = Validator::make($input, Abono::rules());
 
 		if ($validador->passes())
@@ -51,7 +51,7 @@ class AbonoController extends \BaseController {
 			$abono->monto				= $input['monto'];
 			$abono->notas				= $input['notas'];
 			$abono->created_at	= $input['created_at'];
-			$abono->user_id 		= Auth::user()->id;
+			$abono->user_id 		= $input['user_id'];
 			$abono->save();
 
 			return Redirect::route('mostrar_abonos', ['cartera_id' => $input['cartera_id']]);
@@ -99,7 +99,7 @@ class AbonoController extends \BaseController {
 	 */
 	public function update()
 	{
-		$input = Input::only(['id', 'forma_pago', 'cuenta_id', 'monto', 'notas', 'created_at']);
+		$input = Input::only(['id', 'forma_pago', 'cuenta_id', 'monto', 'notas', 'created_at', 'user_id']);
 		$validador = Validator::make($input, Abono::rules());
 
 		if ($validador->passes())
@@ -110,7 +110,7 @@ class AbonoController extends \BaseController {
 			$abono->monto				= $input['monto'];
 			$abono->notas				= $input['notas'];
 			$abono->created_at	= $input['created_at'];
-			$abono->user_id 		= Auth::user()->id;
+			$abono->user_id 		= $input['user_id'];
 			$abono->save();
 
 			return Redirect::route('mostrar_abonos', ['cartera_id' => $abono->cartera->id ]);

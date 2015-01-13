@@ -5,6 +5,9 @@
 	<dt>Fecha:</dt>
 	<dd>{{date_format(new Datetime($cartera->created_at), 'Y-m-d')}}</dd>
 
+	<dt>Responsable:</dt>
+	<dd>{{$cartera->user->nombre}}</dd>
+
 	<dt>Transcurrido:</dt>
 	<dd>{{$cartera->tiempo_transcurrido(null, null, true)}} días</dd>
 
@@ -17,14 +20,14 @@
 	<dt>Valor:</dt>
 	<dd>{{number_format($cartera->valor, 2, ',', '.')}}</dd>
 
-	<dt>Notas:</dt>
-	<dd>{{$cartera->notas}}</dd>
-
 	<dt>Total abonado:</dt>
 	<dd>{{number_format($cartera->totalAbonado(), 2, ',', '.')}}</dd>
 
 	<dt>Saldo:</dt>
 	<dd>{{number_format($cartera->saldo(), 2, ',', '.')}}</dd>
+
+	<dt>Notas:</dt>
+	<dd>{{$cartera->notas}}</dd>
 
 </dl>
 

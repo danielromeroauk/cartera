@@ -10,7 +10,7 @@
 	<dt>Teléfono:</dt>
 	<dd>{{$tercero->telefono}}</dd>
 
-	<dt>Correo electrónico:</dt>
+	<dt>Email:</dt>
 	<dd>{{$tercero->email}}</dd>
 
 	<dt>Notas:</dt>

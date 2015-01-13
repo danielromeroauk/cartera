@@ -21,6 +21,23 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var array
 	 */
-	protected $hidden = array('password', 'remember_token');
+	protected $hidden = ['password', 'remember_token'];
 
-}
+	/***
+	 * Devuelte un array que puede ser usado para rellenar elementos select de HTML
+	 * @return array
+	 */
+	public static function users_array()
+	{
+		$users = User::orderBy('nombre', 'ASC')->get();
+		$users_array = array();
+
+		foreach ($users as $user)
+		{
+			$users_array[$user->id] = $user->nombre;
+		}
+
+		return $users_array;
+	} #users_array
+
+} #User

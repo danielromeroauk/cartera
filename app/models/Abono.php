@@ -36,4 +36,9 @@ class Abono extends \Eloquent {
 		return $formas_pago_array;
 	} #forma_pago
 
+	public function user()
+	{
+		return $this->belongsTo('User');
+	}
+
 } #Abono
