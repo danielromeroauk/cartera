@@ -49,8 +49,7 @@ class CarteraController extends \BaseController {
 	 */
 	public function store()
 	{
-		$input = Input::only(['tercero_id', 'documento', 'prefijo', 'fisico', 'pedido', 'valor', 'notas', 'created_at',
-													'user_id']);
+		$input = Input::only(['tercero_id', 'documento', 'prefijo', 'fisico', 'pedido', 'valor', 'notas', 'created_at']);
 		$validador = Validator::make($input, Cartera::rules());
 
 		if ($validador->passes())
@@ -64,7 +63,7 @@ class CarteraController extends \BaseController {
 			$cartera->valor	 			= $input['valor'];
 			$cartera->notas	 			= $input['notas'];
 			$cartera->created_at	= $input['created_at'];
-			$cartera->user_id 		= $input['user_id'];
+			$cartera->user_id 		= Auth::user()->id;
 			$cartera->save();
 
 			return Redirect::route('mostrar_tercero', ['id' => $input['tercero_id']]);
@@ -111,7 +110,7 @@ class CarteraController extends \BaseController {
 	 */
 	public function update()
 	{
-		$input = Input::only(['id', 'prefijo', 'fisico', 'pedido', 'valor', 'notas', 'created_at', 'user_id']);
+		$input = Input::only(['id', 'prefijo', 'fisico', 'pedido', 'valor', 'notas', 'created_at']);
 
 		$validador = Validator::make($input, Cartera::rules());
 
@@ -124,7 +123,7 @@ class CarteraController extends \BaseController {
 			$cartera->valor				= $input['valor'];
 			$cartera->notas				= $input['notas'];
 			$cartera->created_at	= $input['created_at'];
-			$cartera->user_id 		= $input['user_id'];
+			$cartera->user_id 		= Auth::user()->id;
 			$cartera->save();
 
 			return Redirect::route('listado_de_carteras', [

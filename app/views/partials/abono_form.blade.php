@@ -1,13 +1,17 @@
 <div class="col-md-8">
 
-	<div class="form-group">
-		{{Form::label('user_id', 'Responsable', ['class' => 'control-label'])}}
+	<div class="form-group {{$errors->first('monto', 'has-error')}}">
+		{{Form::label('monto', 'Monto', ['class' => 'control-label'])}}
 
-		{{Form::select('user_id',
-			User::users_array(),
-			(isset($abono->user_id)) ? $abono->user_id : Auth::user()->id,
-			['class' => 'form-control']
-		)}}
+		{{Form::number('monto', null, [
+				'placeholder' => '0,00',
+				'class' => 'form-control',
+				'step' => '0.01',
+				'min' => '0.00',
+				'max' => $max
+				])}}
+
+		{{$errors->first('monto', '<p class="text-warning">:message</p>')}}
 	</div>
 
 	<div class="form-group {{$errors->first('notas', 'has-error')}}">
@@ -15,7 +19,7 @@
 
 		{{Form::textarea('notas', null, [
 			'placeholder' => 'Notas',
-			'rows' => '9',
+			'rows' => '5',
 			'class' => 'form-control',
 			'maxlength' => '1000'])}}
 
@@ -57,20 +61,6 @@
 			['class' => 'form-control']
 			)}}
 
-	</div>
-
-	<div class="form-group {{$errors->first('monto', 'has-error')}}">
-		{{Form::label('monto', 'Monto', ['class' => 'control-label'])}}
-
-		{{Form::number('monto', null, [
-				'placeholder' => '0,00',
-				'class' => 'form-control',
-				'step' => '0.01',
-				'min' => '0.00',
-				'max' => $max
-				])}}
-
-		{{$errors->first('monto', '<p class="text-warning">:message</p>')}}
 	</div>
 
 </div> {{-- /.col-md-4 --}}

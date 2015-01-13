@@ -47,16 +47,6 @@
 
 	<div class="col-md-8">
 
-		<div class="form-group">
-        	{{Form::label('user_id', 'Responsable', ['class' => 'control-label'])}}
-
-			{{Form::select('user_id',
-				User::users_array(),
-				(isset($cartera->user_id)) ? $cartera->user_id : Auth::user()->id,
-				['class' => 'form-control']
-			)}}
-		</div>
-
 		<div class="form-group {{$errors->first('valor', 'has-error')}}">
         	{{Form::label('valor', 'Valor', ['class' => 'control-label'])}}
 
@@ -74,7 +64,7 @@
 
         	{{Form::textarea('notas', null, [
         		'placeholder' => 'Notas',
-        		'rows' => '5',
+        		'rows' => '9',
         		'class' => 'form-control',
         		'maxlength' => '1000'])}}
 
