@@ -25,7 +25,7 @@
 			<td>{{date_format(new Datetime($abono->created_at), 'Y-m-d')}}</td>
 			<td>
 				{{$abono->forma_pago}}
-				@if($abono->cuenta)
+				@if(isset($abono->cuenta_id))
 					Cuenta
 					{{$tercero->cuentas_array()[$abono->cuenta_id]}}
 				@endif
