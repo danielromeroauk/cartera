@@ -21,6 +21,7 @@ class HomeController extends BaseController {
 		$user->nombre = 'DANIEL GUILLERMO ROMERO GELVEZ';
 		$user->email = 'danielromeroauk@gmail.com';
 		$user->password = Hash::make('123');
+		$user->rol = 'administrador';
 		$user->save();
 
 		foreach(range(1, 10) as $index)
@@ -29,6 +30,7 @@ class HomeController extends BaseController {
 			$user->nombre = $faker->name;
 			$user->email = $faker->email;
 			$user->password = Hash::make('123');
+			$user->rol = 'auxiliar';
 			$user->save();
 		}
 
