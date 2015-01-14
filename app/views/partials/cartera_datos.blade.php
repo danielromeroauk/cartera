@@ -31,6 +31,7 @@
 
 </dl>
 
+@if(Auth::user()->rol == 'administrador')
 <div class="well">
 	<div class="row">
 
@@ -46,3 +47,4 @@
 
 	</div>
 </div>
+@endif

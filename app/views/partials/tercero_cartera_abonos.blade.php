@@ -7,7 +7,9 @@
 			<th>Forma de pago</th>
 			<th class="text-right">Monto</th>
 			<th>Notas</th>
+			@if(Auth::user()->rol == 'administrador')
 			<th>Acción</th>
+			@endif
 		</tr>
 	</thead>
 	<tfoot>
@@ -36,12 +38,14 @@
 				{{$abono->notas}} <br />
 				Responsable: {{$abono->user->nombre}}
 			</td>
+			@if(Auth::user()->rol == 'administrador')
 			<td>
 				<a href="{{route('editar_abono', ['id' => $abono->id])}}" class="btn btn-warning btn-sm">
 					<span class="glyphicon glyphicon-edit"></span>
 					Editar
 				</a>
 			</td>
+			@endif
 		</tr>
 		@endforeach
 	</tbody>

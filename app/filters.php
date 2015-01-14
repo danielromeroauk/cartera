@@ -48,6 +48,14 @@ Route::filter('auth', function()
 	}
 });
 
+Route::filter('administrador', function()
+{
+	if (Auth::user()->rol != 'administrador')
+	{
+		return Redirect::route('home');
+	}
+});
+
 
 Route::filter('auth.basic', function()
 {
