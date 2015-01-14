@@ -66,7 +66,7 @@ class CarteraController extends \BaseController {
 			$cartera->user_id 		= Auth::user()->id;
 			$cartera->save();
 
-			return Redirect::route('mostrar_tercero', ['id' => $input['tercero_id']]);
+			return Redirect::route('mostrar_abonos', ['cartera_id' => $cartera->id]);
 		}
 		else
 		{
@@ -126,10 +126,7 @@ class CarteraController extends \BaseController {
 			$cartera->user_id 		= Auth::user()->id;
 			$cartera->save();
 
-			return Redirect::route('listado_de_carteras', [
-					'documento' => $cartera->documento,
-					'tercero' => $cartera->tercero->id
-			]);
+			return Redirect::route('mostrar_abonos', ['cartera_id' => $cartera->id]);
 		}
 		else
 		{
