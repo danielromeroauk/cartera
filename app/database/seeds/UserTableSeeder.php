@@ -13,6 +13,7 @@ class UserTableSeeder extends Seeder {
 		$user->nombre = 'DANIEL GUILLERMO ROMERO GELVEZ';
 		$user->email = 'danielromeroauk@gmail.com';
 		$user->password = Hash::make('123');
+		$user->rol = 'administador';
 		$user->save();
 
 		foreach(range(1, 10) as $index)
@@ -21,6 +22,7 @@ class UserTableSeeder extends Seeder {
 			$user->nombre = $faker->name;
 			$user->email = $faker->email;
 			$user->password = Hash::make('123');
+			$user->rol = 'auxiliar';
 			$user->save();
 		}
 	}
