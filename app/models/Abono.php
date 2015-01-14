@@ -13,8 +13,9 @@ class Abono extends \Eloquent {
 	public static function rules()
 	{
 		$reglas = [
-				'monto' => 'required|min:0',
-				'forma_pago' => 'required'
+				'monto' 			=> 'required|min:0',
+				'forma_pago' 	=> 'required',
+				'comprobante' => 'required'
 		];
 
 		return $reglas;

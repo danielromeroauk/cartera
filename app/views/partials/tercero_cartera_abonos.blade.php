@@ -32,6 +32,7 @@
 			</td>
 			<td class="text-right">{{number_format($abono->monto, 2, ',', '.')}}</td>
 			<td>
+				{{$abono->comprobante}} <br />
 				{{$abono->notas}} <br />
 				Responsable: {{$abono->user->nombre}}
 			</td>

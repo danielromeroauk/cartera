@@ -19,7 +19,7 @@
 
 		{{Form::textarea('notas', null, [
 			'placeholder' => 'Notas',
-			'rows' => '5',
+			'rows' => '8',
 			'class' => 'form-control',
 			'maxlength' => '1000'])}}
 
@@ -61,6 +61,18 @@
 			['class' => 'form-control']
 			)}}
 
+	</div>
+
+	<div class="form-group {{$errors->first('comprobante', 'has-error')}}">
+		{{Form::label('comprobante', 'Soporte contable', ['class' => 'control-label'])}}
+
+		{{Form::text('comprobante', null, [
+			'placeholder' => 'Soporte contable',
+			'class' => 'form-control',
+			'required',
+			'maxlength' => '255'])}}
+
+		{{$errors->first('comprobante', '<p class="text-warning">:message</p>')}}
 	</div>
 
 </div> {{-- /.col-md-4 --}}
