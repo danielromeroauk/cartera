@@ -2,7 +2,8 @@
 
 class Tercero extends \Eloquent {
 
-	protected $fillable = [];
+	protected $fillable = ['nit','nombre','direccion','telefono','email','notas','user_id'];
+
 	protected $perPage = 12;
 
 	public function user()
