@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="{{ url('/') }}">
-        {{--<img title="Logo Distrigases" alt="Logo Distrigases" src="{{ url('img/logo-distrigases.png') }}" />--}}
+        <img title="Logo Distrigases" alt="Logo Distrigases" src="{{ url('img/logo-distrigases.png') }}" />
         <span>APLICACIÓN DE CARTERA</span>
       </a>
     </div>

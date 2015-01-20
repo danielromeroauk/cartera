@@ -23,5 +23,7 @@
 {{HTML::script('bootstrap/js/bootstrap.min.js')}}
 {{HTML::script('js/main.js')}}
 @yield('scripts')
+
+@include('analyticstracking')
 </body>
 </html>
