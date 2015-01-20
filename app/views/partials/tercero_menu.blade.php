@@ -1,5 +1,6 @@
 <div class="list-group">
 	<a href="{{route('mostrar_tercero', ['id' => $tercero->id])}}" class="list-group-item active">
+		<span class="glyphicon glyphicon-eye-open"></span>
 		{{$tercero->nombre}}
 	</a>
 
@@ -15,6 +16,7 @@
 
 	<a class="list-group-item active" href="{{route('listado_de_carteras', ['documento' => 'PAGAR',
 	'tercero' => $tercero->id])}}">
+		<span class="glyphicon glyphicon-time"></span>
 		Carteras por pagar
 	</a>
 
@@ -28,6 +30,7 @@
 
 	<a class="list-group-item active" href="{{route('listado_de_carteras', ['documento' => 'COBRAR',
 	'tercero' => $tercero->id])}}">
+		<span class="glyphicon glyphicon-tower"></span>
 		Carteras por cobrar
 	</a>
 

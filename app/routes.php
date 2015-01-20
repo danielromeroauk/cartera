@@ -113,6 +113,13 @@ Route::group(array('before' => 'auth'), function()
 	]);
 
 
+	// Auxiliar: Vencimientos
+	Route::get('vencimientos/{documento}', [
+		'as' => 'vencimientos',
+		'uses' => 'CarteraController@vencimientos'
+	]);
+
+
 	// Permisos de administrador
 	Route::group(array('before' => 'administrador'), function()
 	{

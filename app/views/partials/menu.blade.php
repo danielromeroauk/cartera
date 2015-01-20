@@ -27,16 +27,29 @@
 		  <ul class="dropdown-menu">
 			<li>
 			  <a href="{{route('cartera_general', ['documento' => 'PAGAR'])}}">
-				Por pagar
+				Resumen por pagar
+			  </a>
+			</li>
+			<li>
+			  <a href="{{route('vencimientos', ['documento' => 'PAGAR'])}}">
+				Vencimientos por pagar
 			  </a>
 			</li>
 
+			<li class="divider"></li>
+
 			<li>
 			  <a href="{{route('cartera_general', ['documento' => 'COBRAR'])}}">
-				Por cobrar
+				Resumen por cobrar
+			  </a>
+			</li>
+			<li>
+			  <a href="{{route('vencimientos', ['documento' => 'COBRAR'])}}">
+				Vencimientos por cobrar
 			  </a>
 			</li>
 		  </ul>
+
 		</li>
 
 		<li>

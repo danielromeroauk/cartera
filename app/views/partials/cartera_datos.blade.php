@@ -1,35 +1,60 @@
 <h2>Cartera por {{strtolower($cartera->documento)}} <small>a {{$tercero->nombre}}</small></h2>
 
-<dl class="dl-horizontal">
+<div class="row">
+	<div class="col-sm-6">
+		<table class="table table-striped table-bordered">
+			<tr>
+				<th class="text-right">Fecha de emisión:</th>
+				<td>{{date_format(new Datetime($cartera->created_at), 'Y-m-d')}}</td>
+			</tr>
+			<tr>
+				<th class="text-right">Tiempo transcurrido:</th>
+				<td>{{$cartera->tiempo_transcurrido(null, null, true)}} días</td>
+			</tr>
+			<tr>
+				<th class="text-right">Responsable:</th>
+				<td>{{$cartera->user->nombre}}</td>
+			</tr>
+		</table>
+	</div>
 
-	<dt>Fecha:</dt>
-	<dd>{{date_format(new Datetime($cartera->created_at), 'Y-m-d')}}</dd>
+	<div class="col-sm-4">
+			<table class="table table-striped table-bordered">
+			<tr>
+				<th class="text-right">{{$cartera->prefijo}}:</th>
+				<td class="text-right"><strong>{{$cartera->fisico}}</strong></td>
+			</tr>
+			<tr>
+				<th class="text-right">Pedido:</th>
+				<td>{{$cartera->pedido}}</td>
+			</tr>
+			<tr>
+				<th class="text-right">Valor:</th>
+				<td class="text-right">{{number_format($cartera->valor, 2, ',', '.')}}</td>
+			</tr>
+			<tr>
+				<th class="text-right">Abonado:</th>
+				<td class="text-right">{{number_format($cartera->totalAbonado(), 2, ',', '.')}}</td>
+			</tr>
+			<tr>
+				<th class="text-right">Saldo:</th>
+				<td class="text-right">{{number_format($cartera->saldo(), 2, ',', '.')}}</td>
+			</tr>
+			<tr>
+				<th class="text-right">Fecha de vencimiento:</th>
+				<td class="text-right">{{date_format(new Datetime($cartera->vencimiento), 'Y-m-d')}}</td>
+			</tr>
 
-	<dt>Responsable:</dt>
-	<dd>{{$cartera->user->nombre}}</dd>
+		</table>
+	</div>
+</div>
 
-	<dt>Transcurrido:</dt>
-	<dd>{{$cartera->tiempo_transcurrido(null, null, true)}} días</dd>
-
-	<dt>{{$cartera->prefijo}}</dt>
-	<dd><strong>{{$cartera->fisico}}</strong></dd>
-
-	<dt>Pedido:</dt>
-	<dd>{{$cartera->pedido}}</dd>
-
-	<dt>Valor:</dt>
-	<dd>{{number_format($cartera->valor, 2, ',', '.')}}</dd>
-
-	<dt>Total abonado:</dt>
-	<dd>{{number_format($cartera->totalAbonado(), 2, ',', '.')}}</dd>
-
-	<dt>Saldo:</dt>
-	<dd>{{number_format($cartera->saldo(), 2, ',', '.')}}</dd>
-
-	<dt>Notas:</dt>
-	<dd>{{$cartera->notas}}</dd>
-
-</dl>
+@if(isset($cartera->notas) && $cartera->notas != '')
+<div class="alert alert-success">
+	Notas: <br />
+	{{nl2br($cartera->notas)}}
+</div>
+@endif
 
 @if(Auth::user()->rol == 'administrador')
 <div class="well">
