@@ -160,4 +160,9 @@ Route::group(array('before' => 'auth'), function()
 		'uses' => 'CarteraController@buscar'
 	]);
 
+	Route::get('vencimientos/{documento}', [
+		'as' => 'vencimientos',
+		'uses' => 'CarteraController@vencimientos'
+	]);
+
 });

@@ -19,7 +19,7 @@
 
 		{{Form::textarea('notas', null, [
 			'placeholder' => 'Notas',
-			'rows' => '5',
+			'rows' => '4',
 			'class' => 'form-control',
 			'maxlength' => '1000'])}}
 
@@ -43,10 +43,10 @@
 
 	<div class="form-group">
 
-		{{Form::label('cuenta_id', 'Cuenta Bancaria', ['class' => 'control-label'])}}
+		{{Form::label('forma_pago', 'Forma de pago', ['class' => 'control-label'])}}
 
-		{{Form::select('cuenta_id', $tercero->cuentas_array(),
-			(isset($abono->cuenta_id) ? $abono->cuenta_id : null),
+		{{Form::select('forma_pago', Abono::formas_pago_array(),
+			(isset($abono->forma_pago) ? $abono->forma_pago : 'EFECTIVO'),
 			['class' => 'form-control']
 			)}}
 
@@ -54,10 +54,10 @@
 
 	<div class="form-group">
 
-		{{Form::label('forma_pago', 'Forma de pago', ['class' => 'control-label'])}}
+		{{Form::label('cuenta_id', 'Cuenta Bancaria', ['class' => 'control-label'])}}
 
-		{{Form::select('forma_pago', Abono::formas_pago_array(),
-			(isset($abono->forma_pago) ? $abono->forma_pago : 'EFECTIVO'),
+		{{Form::select('cuenta_id', $tercero->cuentas_array(),
+			(isset($abono->cuenta_id) ? $abono->cuenta_id : null),
 			['class' => 'form-control']
 			)}}
 

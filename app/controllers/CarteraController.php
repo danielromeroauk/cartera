@@ -49,7 +49,18 @@ class CarteraController extends \BaseController {
 	 */
 	public function store()
 	{
-		$input = Input::only(['tercero_id', 'documento', 'prefijo', 'fisico', 'pedido', 'valor', 'notas', 'created_at']);
+		$input = Input::only([
+				'tercero_id',
+				'documento',
+				'prefijo',
+				'fisico',
+				'pedido',
+				'valor',
+				'notas',
+				'created_at',
+				'vencimiento'
+		]);
+
 		$validador = Validator::make($input, Cartera::rules());
 
 		if ($validador->passes())
@@ -63,6 +74,7 @@ class CarteraController extends \BaseController {
 			$cartera->valor	 			= $input['valor'];
 			$cartera->notas	 			= $input['notas'];
 			$cartera->created_at	= $input['created_at'];
+			$cartera->vencimiento	= $input['vencimiento'];
 			$cartera->user_id 		= Auth::user()->id;
 			$cartera->save();
 
@@ -110,7 +122,7 @@ class CarteraController extends \BaseController {
 	 */
 	public function update()
 	{
-		$input = Input::only(['id', 'prefijo', 'fisico', 'pedido', 'valor', 'notas', 'created_at']);
+		$input = Input::only(['id', 'prefijo', 'fisico', 'pedido', 'valor', 'notas', 'created_at', 'vencimiento']);
 
 		$validador = Validator::make($input, Cartera::rules());
 
@@ -123,6 +135,7 @@ class CarteraController extends \BaseController {
 			$cartera->valor				= $input['valor'];
 			$cartera->notas				= $input['notas'];
 			$cartera->created_at	= $input['created_at'];
+			$cartera->vencimiento	= $input['vencimiento'];
 			$cartera->user_id 		= Auth::user()->id;
 			$cartera->save();
 
@@ -360,5 +373,12 @@ class CarteraController extends \BaseController {
 
 		return View::make('carteras.listado', compact('documento', 'tercero', 'saldos'));
 	} #buscar
+
+	public function vencimientos($documento)
+	{
+		$carteras = Cartera::where('documento', '=', $documento)->orderBy('vencimiento', 'ASC')->paginate(50);
+
+		return View::make('carteras.vencimientos', compact('documento', 'carteras'));
+	}
 
 } #CarteraController

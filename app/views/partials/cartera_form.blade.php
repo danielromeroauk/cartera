@@ -3,10 +3,18 @@
 	<div class="col-md-4">
 
 		<div class="form-group {{$errors->first('created_at', 'has-error')}}">
-			{{Form::label('created_at', 'Fecha', ['class' => 'control-label'])}}
+			{{Form::label('created_at', 'Fecha de emisión', ['class' => 'control-label'])}}
 
 			{{Form::input('date', 'created_at',
 				(isset($cartera->created_at)) ? date_format(new DateTime($cartera->created_at), 'Y-m-d') : null,
+				['class' => 'form-control', 'required'])}}
+		</div>
+
+		<div class="form-group {{$errors->first('created_at', 'has-error')}}">
+			{{Form::label('vencimiento', 'Fecha de vencimiento', ['class' => 'control-label'])}}
+
+			{{Form::input('date', 'vencimiento',
+				(isset($cartera->vencimiento)) ? date_format(new DateTime($cartera->vencimiento), 'Y-m-d') : null,
 				['class' => 'form-control', 'required'])}}
 		</div>
 
@@ -64,7 +72,7 @@
 
         	{{Form::textarea('notas', null, [
         		'placeholder' => 'Notas',
-        		'rows' => '9',
+        		'rows' => '13',
         		'class' => 'form-control',
         		'maxlength' => '1000'])}}
 
