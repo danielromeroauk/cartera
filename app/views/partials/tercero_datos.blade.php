@@ -13,6 +13,10 @@
 	<dt>Email:</dt>
 	<dd>{{$tercero->email}}</dd>
 
-	<dt>Notas:</dt>
-	<dd>{{nl2br($tercero->notas)}}</dd>
 </dl>
+
+@if(isset($tercero->notas) && $tercero->notas != '')
+<div class="well">
+	{{nl2br($tercero->notas)}}
+</div>
+@endif
