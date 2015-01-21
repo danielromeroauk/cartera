@@ -23,11 +23,11 @@
 	<a href="{{route('crear_cartera', ['documento' => 'PAGAR', 'tercero' => $tercero->id])}}" class="list-group-item">
 		Crear cartera por <strong>pagar</strong>
 	</a>
-
+{{--
 	<a href="{{route('listado_de_carteras', ['documento' => 'PAGAR', 'tercero' => $tercero->id])}}" class="list-group-item">
 		Ver carteras por <strong>pagar</strong> de este tercero
 	</a>
-
+--}}
 	<a class="list-group-item active" href="{{route('listado_de_carteras', ['documento' => 'COBRAR',
 	'tercero' => $tercero->id])}}">
 		<span class="glyphicon glyphicon-tower"></span>
@@ -37,8 +37,9 @@
 	<a href="{{route('crear_cartera', ['documento' => 'COBRAR', 'tercero' => $tercero->id])}}" class="list-group-item">
 		Crear cartera por <strong>cobrar</strong>
 	</a>
-
+{{--
 	<a href="{{route('listado_de_carteras', ['documento' => 'COBRAR', 'tercero' => $tercero->id])}}" class="list-group-item">
 		Ver carteras por <strong>cobrar</strong> de este tercero
 	</a>
+--}}
 </div>
