@@ -51,7 +51,6 @@
 
 @if(isset($cartera->notas) && $cartera->notas != '')
 <div class="alert alert-success">
-	Notas: <br />
 	{{nl2br($cartera->notas)}}
 </div>
 @endif

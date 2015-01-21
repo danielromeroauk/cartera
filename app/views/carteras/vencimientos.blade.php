@@ -18,6 +18,10 @@
 	</thead>
 	<tbody>
 		@foreach($carteras as $cartera)
+
+			@if($cartera->saldo() == 0)
+				<?php continue; ?>
+			@endif
 		<tr>
 			<td>{{date_format(new Datetime($cartera->vencimiento), 'Y-m-d')}}</td>
 			<td class="text-center">{{$cartera->tiempo_transcurrido(null, null, true)}} días</td>
