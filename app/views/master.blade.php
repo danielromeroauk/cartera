@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<title>
-	@section('title') Cartera @show
-</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-{{HTML::style('bootstrap/css/bootstrap-united.min.css')}}
-{{HTML::style('css/main.css')}}
-@yield('styles')
+	<title>
+		@section('title') Cartera @show
+	</title>
+
+	{{HTML::style('bootstrap/css/bootstrap-united.min.css')}}
+	{{HTML::style('css/main.css')}}
+	@yield('styles')
 </head>
 <body>
 @if(Auth::check())
