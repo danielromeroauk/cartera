@@ -246,7 +246,11 @@ class CarteraController extends \BaseController {
 
 		$carteras = Cartera::with('tercero', 'abonos')
 				->where('documento', '=', $documento)
-				->get();
+                ->get()
+                ->sortBy(function($cartera)
+                {
+                    return $cartera->tercero->nombre;
+                });
 
 		foreach ($carteras as $cartera)
 		{
