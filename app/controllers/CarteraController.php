@@ -314,7 +314,7 @@ class CarteraController extends \BaseController {
 			{
 				if (isset($saldos[$cartera->tercero->id]['mas120']))
 				{
-					$saldos['mas120'][$cartera->tercero->id] += $cartera->valor;
+					$saldos[$cartera->tercero->id]['mas120'] += $cartera->valor;
 				}
 				else
 				{
