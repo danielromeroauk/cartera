@@ -12,13 +12,13 @@ class TerceroTableSeeder extends Seeder {
 		foreach(range(1, 100) as $index)
 		{
 			Tercero::create([
-				'nit'					=> $faker->unique()->bothify('###.###.###-#'),
-				'nombre'			=> $faker->name,
+				'nit'			=> $faker->unique()->bothify('###.###.###-#'),
+				'nombre'		=> $faker->name,
 				'direccion'		=> $faker->address,
 				'telefono'		=> $faker->phoneNumber,
-				'email'				=> $faker->email,
-				'notas'				=> $faker->realText(1000),
-				'user_id'			=> 1
+				'email'			=> $faker->email,
+				'notas'			=> $faker->realText(1000),
+				'user_id'		=> 1
 			]);
 		}
 	}
