@@ -9,7 +9,7 @@
 		@section('title') Cartera @show
 	</title>
 
-	{{HTML::style('bootstrap/css/bootstrap-united.min.css')}}
+	{{HTML::style('bootstrap/css/bootstrap-spacelab.min.css')}}
 	{{HTML::style('css/main.css')}}
 	@yield('styles')
 </head>
