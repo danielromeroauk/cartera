@@ -2,20 +2,25 @@
 
 @section('content')
 
-<div class="col-md-6">
+<div class="row">
+	<div class="col-md-2">
+		@include('partials.tercero_menu')
+	</div>
 
-	<h1>Crear cuenta <small>para {{$tercero->nombre}}</small></h1>
+	<div class="col-md-6">
 
-	{{Form::open(['route' => 'guardar_cuenta', 'role' => 'form', 'method' => 'POST'])}}
+		<h1>Crear cuenta <small>para {{$tercero->nombre}}</small></h1>
 
-		{{Form::hidden('tercero_id', $tercero->id)}}
+		{{Form::open(['route' => 'guardar_cuenta', 'role' => 'form', 'method' => 'POST'])}}
 
-		@include('partials.cuenta_form')
+			{{Form::hidden('tercero_id', $tercero->id)}}
 
-		@include('partials.btnguardar')
+			@include('partials.cuenta_form')
 
-	{{Form::close()}}
+			@include('partials.btnguardar')
 
+		{{Form::close()}}
+
+	</div>
 </div>
-
 @stop

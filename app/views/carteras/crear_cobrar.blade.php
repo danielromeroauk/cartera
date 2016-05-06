@@ -2,22 +2,29 @@
 
 @section('content')
 
-<div class="col-md-8">
+<div class="row">
+	<div class="col-md-2">
+		@include('partials.tercero_menu')
+	</div>
 
-	<h1>Crear cartera por cobrar <small>a {{$tercero->nombre}}</small></h1>
+	<div class="col-md-8">
 
-	{{Form::open(['route' => 'guardar_cartera', 'role' => 'form', 'method' => 'POST'])}}
+		<h1>Crear cartera por cobrar <small>a {{$tercero->nombre}}</small></h1>
 
-		{{Form::hidden('documento', 'COBRAR')}}
+		{{Form::open(['route' => 'guardar_cartera', 'role' => 'form', 'method' => 'POST'])}}
 
-		{{Form::hidden('tercero_id', $tercero->id)}}
+			{{Form::hidden('documento', 'COBRAR')}}
 
-		@include('partials.cartera_form')
+			{{Form::hidden('tercero_id', $tercero->id)}}
 
-		@include('partials.btnguardar')
+			@include('partials.cartera_form')
 
-	{{Form::close()}}
+			@include('partials.btnguardar')
 
-</div>
+		{{Form::close()}}
+
+	</div>
+
+</div> {{-- /.row --}}
 
 @stop
