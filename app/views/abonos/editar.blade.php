@@ -9,7 +9,7 @@
 
 <div class="col-md-10">
 
-	<h1>Editar abono de <small>{{$tercero->nombre}}</small></h1>
+	<h1>Editar abono de la {{$abono->cartera->prefijo}} {{$abono->cartera->fisico}} <small>de {{$tercero->nombre}}</small></h1>
 
 	{{Form::model($abono, ['route' => 'actualizar_abono', 'role' => 'form'])}}
 
