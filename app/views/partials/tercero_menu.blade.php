@@ -1,7 +1,11 @@
 <div class="list-group">
-	<a href="{{route('mostrar_tercero', ['id' => $tercero->id])}}" class="list-group-item active">
+	<p class="list-group-item active">
 		<span class="glyphicon glyphicon-eye-open"></span>
-		{{$tercero->nombre}}
+		Datos del tercero
+	</p>
+
+	<a href="{{route('mostrar_tercero', ['id' => $tercero->id])}}" class="list-group-item">
+		Resumen
 	</a>
 
 	@if(Auth::user()->rol == 'administrador')
@@ -11,35 +15,34 @@
 	@endif
 
 	<a href="{{route('crear_cuenta', ['id_tercero' => $tercero->id])}}" class="list-group-item">
-		Crear cuenta bancaria
+		Registrar una nueva cuenta bancaria del tercero
 	</a>
 
-	<a class="list-group-item active" href="{{route('listado_de_carteras', ['documento' => 'PAGAR',
-	'tercero' => $tercero->id])}}">
+	<p class="list-group-item active">
 		<span class="glyphicon glyphicon-time"></span>
 		Carteras por pagar
+	</p>
+
+	<a class="list-group-item" href="{{route('listado_de_carteras', ['documento' => 'PAGAR',
+	'tercero' => $tercero->id])}}">
+		Ver carteras por pagar del tercero
 	</a>
 
 	<a href="{{route('crear_cartera', ['documento' => 'PAGAR', 'tercero' => $tercero->id])}}" class="list-group-item">
-		Crear cartera por <strong>pagar</strong>
+		Registrar nueva cartera por <strong>pagar</strong> para el tercero
 	</a>
-{{--
-	<a href="{{route('listado_de_carteras', ['documento' => 'PAGAR', 'tercero' => $tercero->id])}}" class="list-group-item">
-		Ver carteras por <strong>pagar</strong> de este tercero
-	</a>
---}}
-	<a class="list-group-item active" href="{{route('listado_de_carteras', ['documento' => 'COBRAR',
-	'tercero' => $tercero->id])}}">
+
+	<p class="list-group-item active">
 		<span class="glyphicon glyphicon-tower"></span>
 		Carteras por cobrar
+	</p>
+
+	<a class="list-group-item" href="{{route('listado_de_carteras', ['documento' => 'COBRAR',
+	'tercero' => $tercero->id])}}">
+		Ver carteras por cobrar del tercero
 	</a>
 
 	<a href="{{route('crear_cartera', ['documento' => 'COBRAR', 'tercero' => $tercero->id])}}" class="list-group-item">
-		Crear cartera por <strong>cobrar</strong>
+		Registrar nueva cartera por <strong>cobrar</strong> para el tercero
 	</a>
-{{--
-	<a href="{{route('listado_de_carteras', ['documento' => 'COBRAR', 'tercero' => $tercero->id])}}" class="list-group-item">
-		Ver carteras por <strong>cobrar</strong> de este tercero
-	</a>
---}}
 </div>
