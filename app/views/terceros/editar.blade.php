@@ -7,21 +7,21 @@
 		@include('partials.tercero_menu')
 	</div>
 
-<div class="col-md-10">
+	<div class="col-md-10">
 
-	<h1>Editar tercero</h1>
+		<h1>Editar tercero</h1>
 
-	{{Form::model($tercero, ['route' => 'actualizar_tercero', 'role' => 'form'])}}
+		{{Form::model($tercero, ['route' => 'actualizar_tercero', 'role' => 'form'])}}
 
-		{{Form::hidden('id', $tercero->id)}}
+			{{Form::hidden('id', $tercero->id)}}
 
-		@include('partials.tercero_form')
+			@include('partials.tercero_form')
 
-		@include('partials.btnguardar')
+			@include('partials.btnguardar')
 
-	{{Form::close()}}
+		{{Form::close()}}
 
-</div>
+	</div>
 
 </div> {{-- /.row --}}
 
