@@ -7,21 +7,21 @@
 		@include('partials.tercero_menu')
 	</div>
 
-<div class="col-md-10">
+	<div class="col-md-10">
 
-	<h1>Editar cartera por {{strtolower($cartera->documento)}} <small>de {{$tercero->nombre}}</small></h1>
+		<h1>Editar cartera por {{strtolower($cartera->documento)}} <small>de {{$tercero->nombre}}</small></h1>
 
-	{{Form::model($cartera, ['route' => 'actualizar_cartera', 'role' => 'form'])}}
+		{{Form::model($cartera, ['route' => 'actualizar_cartera', 'role' => 'form'])}}
 
-		{{Form::hidden('id', $cartera->id)}}
+			{{Form::hidden('id', $cartera->id)}}
 
-		@include('partials.cartera_form')
+			@include('partials.cartera_form')
 
-		@include('partials.btnguardar')
+			@include('partials.btnguardar')
 
-	{{Form::close()}}
+		{{Form::close()}}
 
-</div>
+	</div>
 
 </div> {{-- /.row --}}
 
