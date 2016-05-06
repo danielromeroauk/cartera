@@ -2,33 +2,44 @@
 
 @section('content')
 
-<h1>Crear abono para la {{$cartera->prefijo}} {{$cartera->fisico}} <small>de {{$tercero->nombre}}</small></h1>
-<div class="well">
-	<div class="row">
+<div class="row">
 
-		<div class="col-sm-4">
-			Valor total: {{number_format($cartera->valor, 2, ',', '.')}}
-		</div>
-
-		<div class="col-sm-4">
-			Abonado: {{number_format($cartera->totalAbonado(), 2, ',', '.')}}
-		</div>
-
-		<div class="col-sm-4">
-			Saldo: {{number_format($cartera->saldo(), 2, ',', '.')}}
-		</div>
-
+	<div class="col-md-2">
+		@include('partials.tercero_menu')
 	</div>
-</div>
 
-{{Form::open(['route' => 'guardar_abono', 'role' => 'form', 'method' => 'POST'])}}
+	<div class="col-md-10">
+		<h1>Crear abono para la {{$cartera->prefijo}} {{$cartera->fisico}} <small>de {{$tercero->nombre}}</small></h1>
 
-	{{Form::hidden('cartera_id', $cartera->id)}}
+		<div class="well">
+			<div class="row">
 
-	@include('partials.abono_form')
+				<div class="col-sm-4">
+					Valor total: {{number_format($cartera->valor, 2, ',', '.')}}
+				</div>
 
-	@include('partials.btnguardar')
+				<div class="col-sm-4">
+					Abonado: {{number_format($cartera->totalAbonado(), 2, ',', '.')}}
+				</div>
 
-{{Form::close()}}
+				<div class="col-sm-4">
+					Saldo: {{number_format($cartera->saldo(), 2, ',', '.')}}
+				</div>
+
+			</div>
+		</div>
+
+		{{Form::open(['route' => 'guardar_abono', 'role' => 'form', 'method' => 'POST'])}}
+
+			{{Form::hidden('cartera_id', $cartera->id)}}
+
+			@include('partials.abono_form')
+
+			@include('partials.btnguardar')
+
+		{{Form::close()}}
+	</div>
+
+</div> {{-- /.row --}}
 
 @stop
