@@ -382,7 +382,9 @@ class CarteraController extends \BaseController {
 			}
 		}
 
-		$carteras = Cartera::whereIn('id', $carterasConSaldoIds)->paginate();
+		$carteras = Cartera::whereIn('id', $carterasConSaldoIds)
+			->orderBy('vencimiento', 'ASC')
+			->paginate();
 
 		return View::make('carteras.vencimientos', compact('documento', 'carteras'));
 	} #vencimientos
