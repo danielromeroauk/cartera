@@ -2,11 +2,12 @@
 
 @section('content')
 
-<h1>Vencimientos por {{strtolower($documento)}}</h1>
+<h1>Vencimientos por {{strtolower($documento)}} ordenados por {{ $campoDeOrdenamiento }}</h1>
 
 <table class="table table-bordered table-hover table-striped">
 	<thead>
 		<tr>
+			<th>Fecha de emisión</th>
 			<th>Vencimiento</th>
 			<th class="text-center">Tiempo transcurrido</th>
 			<th>Tercero</th>
@@ -19,6 +20,7 @@
 	<tbody>
 		@foreach($carteras as $cartera)
 		<tr>
+			<td>{{date_format(new Datetime($cartera->created_at), 'Y-m-d')}}</td>
 			<td>{{date_format(new Datetime($cartera->vencimiento), 'Y-m-d')}}</td>
 			<td class="text-center">{{$cartera->tiempo_transcurrido(null, null, true)}} días</td>
 			<td>{{$cartera->tercero->nombre}}</td>

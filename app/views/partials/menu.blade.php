@@ -10,7 +10,7 @@
       </button>
       <a class="navbar-brand" href="{{ url('/') }}">
         <img title="Logo Distrigases" alt="Logo Distrigases" src="{{ url('img/logo-distrigases.png') }}" />
-        <span>CARTERA GASES</span>
+        <span>APLICACIÓN DE CARTERA</span>
       </a>
     </div>
 
@@ -25,27 +25,47 @@
 		  </a>
 
 		  <ul class="dropdown-menu">
+      <li class="active">
+        <a href="{{route('cartera_general', ['documento' => 'PAGAR'])}}">
+          PAGAR
+        </a>
+      <li>
 			<li>
 			  <a href="{{route('cartera_general', ['documento' => 'PAGAR'])}}">
-				Resumen por pagar
+				  Resumen por pagar
 			  </a>
 			</li>
 			<li>
 			  <a href="{{route('vencimientos', ['documento' => 'PAGAR'])}}">
-				Vencimientos por pagar
+				  Vencimientos ordenados por fecha de vencimiento
+			  </a>
+			</li>
+      <li>
+			  <a href="{{route('vencimientos2', ['documento' => 'PAGAR'])}}">
+				  Vencimientos ordenados por días transcurridos
 			  </a>
 			</li>
 
 			<li class="divider"></li>
 
+      <li class="active">
+        <a href="{{route('cartera_general', ['documento' => 'COBRAR'])}}">
+          COBRAR
+        </a>
+      <li>
 			<li>
 			  <a href="{{route('cartera_general', ['documento' => 'COBRAR'])}}">
-				Resumen por cobrar
+				  Resumen por cobrar
 			  </a>
 			</li>
 			<li>
 			  <a href="{{route('vencimientos', ['documento' => 'COBRAR'])}}">
-				Vencimientos por cobrar
+				  Vencimientos ordenados por fecha de vencimiento
+			  </a>
+			</li>
+      <li>
+			  <a href="{{route('vencimientos2', ['documento' => 'COBRAR'])}}">
+				  Vencimientos ordenados por días transcurridos
 			  </a>
 			</li>
 		  </ul>
