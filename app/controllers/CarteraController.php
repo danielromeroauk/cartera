@@ -368,13 +368,16 @@ class CarteraController extends \BaseController {
 		return View::make('carteras.listado', compact('documento', 'tercero', 'saldos'));
 	} #buscar
 
+	/**
+	 * Carteras ordenadas por fecha de vencimiento.
+	 */
 	public function vencimientos($documento)
 	{
-		$carterasDocumento = Cartera::where('documento', '=', $documento)
-			->orderBy('vencimiento', 'ASC')
-			->get();
+		$carterasDocumento = Cartera::where('documento', '=', $documento)->get();
 
 		$carterasConSaldoIds = null;
+
+		$campoDeOrdenamiento = 'vencimiento';
 
 		foreach ($carterasDocumento as $cartera) {
 			if ($cartera->saldo() != 0) {
@@ -386,8 +389,31 @@ class CarteraController extends \BaseController {
 			->orderBy('vencimiento', 'ASC')
 			->paginate();
 
-		return View::make('carteras.vencimientos', compact('documento', 'carteras'));
+		return View::make('carteras.vencimientos', compact('documento', 'carteras', 'campoDeOrdenamiento'));
 	} #vencimientos
 
+	/**
+	 * Carteras ordenadas por días transcurridos.
+	 */
+	public function vencimientos2($documento)
+	{
+		$carterasDocumento = Cartera::where('documento', '=', $documento)->get();
+
+		$carterasConSaldoIds = null;
+
+		$campoDeOrdenamiento = 'días transcurridos';
+
+		foreach ($carterasDocumento as $cartera) {
+			if ($cartera->saldo() != 0) {
+				$carterasConSaldoIds[] = $cartera->id;
+			}
+		}
+
+		$carteras = Cartera::whereIn('id', $carterasConSaldoIds)
+			->orderBy('created_at', 'ASC')
+			->paginate();
+
+		return View::make('carteras.vencimientos', compact('documento', 'carteras', 'campoDeOrdenamiento'));
+	} #vencimientos2
 
 } #CarteraController

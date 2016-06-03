@@ -113,10 +113,16 @@ Route::group(array('before' => 'auth'), function()
 	]);
 
 
-	// Auxiliar: Vencimientos
-	Route::get('vencimientos/{documento}', [
+	// Auxiliar: Vencimientos por fecha de vencimiento.
+	Route::get('vencimientos-por-fecha-de-vencimiento/{documento}', [
 		'as' => 'vencimientos',
 		'uses' => 'CarteraController@vencimientos'
+	]);
+
+	// Auxiliar: Vencimientos por dias transcurridos.
+	Route::get('vencimientos-por-dias-transcurridos/{documento}', [
+		'as' => 'vencimientos2',
+		'uses' => 'CarteraController@vencimientos2'
 	]);
 
 
