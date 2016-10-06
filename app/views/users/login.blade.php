@@ -4,7 +4,7 @@
 <div class="col-md-4 col-md-offset-4">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<h1 class="text-center">Cartera Gases</h1>
+			<h1 class="text-center">Cartera Municipios</h1>
 		</div>
 		<div class="panel-body">
 			{{Form::open([

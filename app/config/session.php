@@ -96,7 +96,7 @@ return array(
 	|
 	*/
 
-	'cookie' => 'cartera_session',
+	'cookie' => 'distrigases3_session',
 
 	/*
 	|--------------------------------------------------------------------------
