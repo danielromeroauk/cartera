@@ -34,7 +34,7 @@
 					</label>
 				</div>
 
-				{{Form::submit('Entrar', ['class' => 'btn btn-primary btn-block btn-lg'])}}
+				{{Form::submit('Entrar', ['class' => 'btn btn-success btn-block btn-lg'])}}
 
 			{{Form::close()}}
 		</div>
